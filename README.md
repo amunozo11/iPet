@@ -1,2 +1,0 @@
-# iPet
-Red social iPet

@@ -1,0 +1,11 @@
+/* Estilos para la animación del formulario */
+.form-activo form {
+  width: 60%;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform-origin: left;
+}
+
+.form-activo input {
+  width: calc(100% - 20px); /* Ajusta según tus necesidades */
+  transition: width 0.2s ease-in-out;
+}

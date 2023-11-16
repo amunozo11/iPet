@@ -1,11 +1,52 @@
-/* Estilos para la animación del formulario */
 .form-activo form {
-  width: 60%;
-  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transform-origin: left;
+  max-width: 400px;
+  transition: max-width 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform-origin: right;
+  position: relative;
 }
 
 .form-activo input {
-  width: calc(100% - 20px); /* Ajusta según tus necesidades */
-  transition: width 0.2s ease-in-out;
+  width: 100%;
+  transition: width 0.5s ease-in-out;
 }
+
+/* Estilos adicionales */
+form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4d4078;
+}
+
+input {
+  background-color: #262531;
+  width: 100%;
+  padding: 12px 40px 12px 35px;
+  border: none;
+  border-radius: 25px;
+  color: #4d4078;
+  outline: none;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+input:hover {
+  color: #262531;
+}
+
+input:focus {
+  background-color: #4d4078;
+  color: #262531;
+}
+
+/* Otros estilos según tus necesidades */

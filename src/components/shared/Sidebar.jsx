@@ -64,16 +64,6 @@ const Sidebar = () => {
               className="group-hover:bg-[#1fccd7] p-4 flex justify-center rounded-xl text-[#1fccd7] group-hover:text-white
               transition-colors"
             >
-              <BiChat className="text-2xl" />
-            </a>
-          </li>
-
-          <li className="hover:bg-[#675378] p-4 rounded-tl-xl rounded-bl-xl group transition-colors">
-            <a
-              href="#"
-              className="group-hover:bg-[#1fccd7] p-4 flex justify-center rounded-xl text-[#1fccd7] group-hover:text-white
-              transition-colors"
-            >
               <IoNotificationsOutline className="text-2xl" />
             </a>
           </li>

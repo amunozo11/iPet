@@ -3,9 +3,11 @@ import { MdClose } from "react-icons/md";
 import { IoMdPhotos } from "react-icons/io";
 import { IoSend } from "react-icons/io5";
 
-const PublicacionBasic = ({ onClose }) => {
+const PublicacionPerdidas = ({ onClose }) => {
   const ref = useRef();
   const [selectedPhotos, setSelectedPhotos] = useState([]);
+  const [location, setLocation] = useState("");
+  const [searchLocation, setSearchLocation] = useState("");
 
   const handleClickOutside = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
@@ -28,6 +30,12 @@ const PublicacionBasic = ({ onClose }) => {
     setSelectedPhotos(newPhotos);
   };
 
+  const handleLocationChange = (event) => {
+    setSearchLocation(event.target.value);
+    // Aquí podrías implementar la lógica de búsqueda de ubicación en base a `searchLocation`
+    // y mostrar los resultados en una lista desplegable o similar.
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -44,6 +52,15 @@ const PublicacionBasic = ({ onClose }) => {
             Nombre
           </div>
         </div>
+        {/* Barra de búsqueda de geolocalización */}
+        <input
+          type="text"
+          value={searchLocation}
+          onChange={handleLocationChange}
+          placeholder="Buscar ubicación..."
+          className="w-full bg-[#4d4078] text-[#1fccd7] pr-20 pl-20 pb-2 rounded-md mb-2 outline-none resize-none text-left"
+          style={{ paddingTop: '1rem', paddingLeft: '1rem' }}
+        />
         <textarea
           className="w-full bg-[#4d4078] text-[#1fccd7] pr-20 pl-20 pb-20 rounded-md mb-4 outline-none resize-none text-left"
           placeholder="Escribe tu publicación..."
@@ -95,4 +112,4 @@ const PublicacionBasic = ({ onClose }) => {
   );
 };
 
-export default PublicacionBasic;
+export default PublicacionPerdidas;

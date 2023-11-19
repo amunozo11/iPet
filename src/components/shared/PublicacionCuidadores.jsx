@@ -3,7 +3,7 @@ import { MdClose } from "react-icons/md";
 import { IoMdPhotos } from "react-icons/io";
 import { IoSend } from "react-icons/io5";
 
-const PublicacionBasic = ({ onClose }) => {
+const PublicacionCuidadores = ({ onClose }) => {
   const ref = useRef();
   const [selectedPhotos, setSelectedPhotos] = useState([]);
 
@@ -95,4 +95,4 @@ const PublicacionBasic = ({ onClose }) => {
   );
 };
 
-export default PublicacionBasic;
+export default PublicacionCuidadores;

@@ -29,7 +29,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="rounded-xl w-full p-4 h-screen flex flex-col">
+    <div className="rounded-xl p-4 h-screen flex flex-col fixed ml-auto w-80">
       {/* Cuadro de amigos */}
       <div className="bg-[#292d55] p-4 rounded-lg shadow-lg flex-1 overflow-y-auto mb-2">
         <h2 className="text-xl text-white mb-4">Amigos</h2>
@@ -59,7 +59,7 @@ const Chat = () => {
       <div className="bg-[#292d55] p-4 rounded-lg shadow-lg flex-1 overflow-y-auto mt-1">
         {selectedFriend && !chatClosed ? (
           <>
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-3 pl-4">
               <h2 className="text-xl text-white">{selectedFriend}</h2>
               <button
                 className="text-white hover:text-[#835ca8]"
@@ -78,10 +78,10 @@ const Chat = () => {
               {/* ... agregar  ... */}
             </div>
             {/* Área de entrada de mensajes */}
-            <div className="flex mt-12">
+            <div className="flex mt-5">
               <input
                 type="text"
-                placeholder={`Escribe tu mensaje a ${selectedFriend}...`}
+                placeholder={`Chatear con ${selectedFriend}...`}
                 className="flex-grow rounded-full p-2 border-none outline-none text-sm"
                 value={messageInput}
                 onChange={(e) => setMessageInput(e.target.value)}

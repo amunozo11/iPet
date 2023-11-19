@@ -3,9 +3,11 @@ import { MdClose } from "react-icons/md";
 import { IoMdPhotos } from "react-icons/io";
 import { IoSend } from "react-icons/io5";
 
-const PublicacionBasic = ({ onClose }) => {
+const PublicacionAdopcion = ({ onClose }) => {
   const ref = useRef();
   const [selectedPhotos, setSelectedPhotos] = useState([]);
+  const [selectedAnimal, setSelectedAnimal] = useState("Perro");
+  const [customAnimal, setCustomAnimal] = useState("");
 
   const handleClickOutside = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
@@ -35,6 +37,18 @@ const PublicacionBasic = ({ onClose }) => {
     };
   }, [ref, onClose, selectedPhotos]);
 
+  const handleAnimalChange = (event) => {
+    setSelectedAnimal(event.target.value);
+    // Si elige "Otro", puedes restablecer el valor del animal personalizado
+    if (event.target.value !== "Otro") {
+      setCustomAnimal("");
+    }
+  };
+
+  const handleCustomAnimalChange = (event) => {
+    setCustomAnimal(event.target.value);
+  };
+
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur-md z-10">
       <div ref={ref} className="bg-[#262531] pr-20 pl-20 pt-10 pb-10 rounded-xl shadow-xl relative flex flex-col items-start">
@@ -46,10 +60,34 @@ const PublicacionBasic = ({ onClose }) => {
         </div>
         <textarea
           className="w-full bg-[#4d4078] text-[#1fccd7] pr-20 pl-20 pb-20 rounded-md mb-4 outline-none resize-none text-left"
-          placeholder="Escribe tu publicación..."
+          placeholder="Escribe tu publicación de adopción..."
           style={{ paddingTop: '1rem', paddingLeft: '1rem' }}
         ></textarea>
-        <div className="flex justify-between">
+        <div className="flex justify-between mb-4">
+          {/* Combobox para el tipo de animal */}
+          <select
+            className="bg-[#4d4078] text-[#835ca8] px-6 py-4 rounded-full cursor-pointer mr-2"
+            value={selectedAnimal}
+            onChange={handleAnimalChange}
+          >
+            {["Perro", "Gato", "Pajaro", "Pez", "Otro"].map((animal) => (
+              <option key={animal} value={animal}>
+                {animal}
+              </option>
+            ))}
+          </select>
+          {/* Input adicional para el tipo de animal personalizado */}
+          {selectedAnimal === "Otro" && (
+            <input
+              type="text"
+              placeholder="Especificar animal"
+              className="bg-[#4d4078] text-[#1fccd7] px-6 py-4 rounded-full outline-none"
+              value={customAnimal}
+              onChange={handleCustomAnimalChange}
+            />
+          )}
+        </div>
+        <div className="flex justify-between mb-4">
           <label htmlFor="file-input">
             <div className="bg-[#4d4078] text-[#262531] px-6 py-4 mx-2 rounded-full cursor-pointer">
               <IoMdPhotos />
@@ -95,4 +133,4 @@ const PublicacionBasic = ({ onClose }) => {
   );
 };
 
-export default PublicacionBasic;
+export default PublicacionAdopcion;

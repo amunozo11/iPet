@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { MdClose } from "react-icons/md";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./components/shared/Sidebar";
-import Chat from "./components/shared/chat";
+import Chat from "./components/shared/Chat"; // Cambié el nombre del componente a "Chat"
 import PublicacionBasic from "./components/shared/PublicacionBasic";
 import PublicacionAdopcion from "./components/shared/PublicacionAdopcion";
 import SearchBar from "./components/shared/SearchBar";
-import { FaRegHeart, FaRegComment } from "react-icons/fa";
 import PublicacionPerdidas from "./components/shared/PublicacionPerdidas";
-import PublicacionEsqueleto from "./components/shared/Publicaciones_Esqueletos";
+import PublicacionEsqueleto from "./components/shared/Publicaciones_Esqueletos"; // Corregí el nombre del componente
 import PublicacionCuidadores from "./components/shared/PublicacionCuidadores";
+import Adopcion from "./components/shared/Adopcion"; // Asumí que "Adopcion" es el componente correcto para la ruta de adopción
 
 const App = () => {
   const [formActivo, setFormActivo] = useState(false);
@@ -67,11 +67,16 @@ const App = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
 
   return (
     <div className={`bg-[#675378] w-full min-h-screen ${formActivo ? "form-activo" : ""}`}>
-      <Sidebar />
+      <Router>
+        <Sidebar />
+        <Routes>
+          {/* Otras rutas... */}
+          <Route path="/adopcion" element={<Adopcion />} />
+        </Routes>
+      </Router>
       <nav className="bg-[#262531] lg:hidden fixed w-full bottom-0 left-0 text-3xl text-gray-400 py-4 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl"></nav>
       <main className="lg:pl-28 grid grid-cols-1 lg:grid-cols-8 p-4">
         <div className="lg:col-span-6">

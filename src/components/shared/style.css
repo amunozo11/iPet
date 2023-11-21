@@ -50,3 +50,10 @@ input:focus {
 }
 
 /* Otros estilos según tus necesidades */
+
+/* Sidebar.css */
+.sidebar-button {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Agrega estilos adicionales según sea necesario */

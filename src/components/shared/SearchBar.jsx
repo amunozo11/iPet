@@ -102,11 +102,11 @@ const SearchBar = () => {
             <div className="pl-4">
               <div className="flex items-center mb-2">
                 <input type="checkbox" checked={filtrosVisibles} onChange={handleToggleFiltros} className="mr-2" />
-                <span className="text-[#4d4078] text-sm">Mostrar filtros</span>
+                <span className="text-[#4d4078] text-sm fixed">Mostrar filtros</span>
               </div>
               {filtrosVisibles && (
                 <>
-                  <h3 className="text-[#4d4078] text-sm mb-2">Filtrar por:</h3>
+                  <h3 className="text-[#4d4078] text-sm mb-2 ">Filtrar por:</h3>
                   <div className="flex flex-row">
                     <label className="inline-flex items-center mr-4">
                       <input type="radio" value="Perro" checked={filtroAnimal === "Perro"} onChange={handleFilterAnimalChange} />

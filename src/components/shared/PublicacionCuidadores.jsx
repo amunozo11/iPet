@@ -3,7 +3,7 @@ import { MdClose } from "react-icons/md";
 import { IoMdPhotos } from "react-icons/io";
 import { IoSend } from "react-icons/io5";
 
-const PublicacionCuidadores = ({ onClose }) => {
+const PublicacionBasic = ({ onClose }) => {
   const ref = useRef();
   const [selectedPhotos, setSelectedPhotos] = useState([]);
 
@@ -36,12 +36,24 @@ const PublicacionCuidadores = ({ onClose }) => {
   }, [ref, onClose, selectedPhotos]);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur-md z-10">
-      <div ref={ref} className="bg-[#262531] pr-20 pl-20 pt-10 pb-10 rounded-xl shadow-xl relative flex flex-col items-start">
-        <div className="flex items-center mb-6">
-          <div className="bg-[#4d4078] w-24 h-24 rounded-full mr-6"></div>
+    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 bg-[#262531] rounded-xl shadow-xl overflow-hidden z-10">
+      <div ref={ref} className="p-6">
+        <div className="flex items-center justify-between w-full mb-4">
           <div className="text-[#835ca8] font-bold text-lg">
-            Nombre
+            Nueva Publicación para Cuidadores
+          </div>
+          <button
+            className="text-[#835ca8] cursor-pointer"
+            onClick={onClose}
+          >
+            <MdClose size={24} />
+          </button>
+        </div>
+        <div className="w-full border-b border-[#4d4078] mb-4"></div>
+        <div className="flex items-center mb-4">
+          <div className="bg-[#4d4078] w-24 h-24 rounded-full mr-6"></div>
+          <div className="text-[#835ca8] font-bold">
+            Nombre del Usuario
           </div>
         </div>
         <textarea
@@ -84,15 +96,9 @@ const PublicacionCuidadores = ({ onClose }) => {
             </div>
           ))}
         </div>
-        <button
-          className="absolute top-0 right-0 m-4 text-[#835ca8] cursor-pointer"
-          onClick={onClose}
-        >
-          <MdClose size={24} />
-        </button>
       </div>
     </div>
   );
 };
 
-export default PublicacionCuidadores;
+export default PublicacionBasic;
